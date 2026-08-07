@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #000000;
+    color: #9ca3af;
+  }
+
+  h1, h2, h3, .font-serif-luxury {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Shiny Golden Gradient Utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF0BA 0%, #F3CE72 25%, #C5A059 50%, #99742A 75%, #F0D382 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #FFE89C 0%, #D4AF37 40%, #A37920 100%);
+}
+
+.bg-gold-gradient-hover {
+  background: linear-gradient(135deg, #FFF3C4 0%, #E2BD48 50%, #B88E2D 100%);
+}
+
+.border-gold-subtle {
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+  }
+}
+
+.gold-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+

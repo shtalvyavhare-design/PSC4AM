@@ -1,0 +1,6 @@
+{
+  "name": "PermanentSmileCare",
+  "description": "World-class dental implant tourism platform in India featuring interactive treatment cost calculator, eligibility checker, before/after gallery, doctor profiles, and custom image management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
