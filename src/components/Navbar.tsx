@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Phone, Image as ImageIcon, Menu, X, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Phone, Menu, X, CheckCircle2 } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
 
 export const Navbar: React.FC = () => {
   const {
-    setIsCustomizerOpen,
     setIsConsultationOpen,
     setIsEligibilityOpen,
   } = useImageContext();
@@ -110,16 +109,6 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action Buttons */}
           <div className="hidden sm:flex items-center space-x-3">
-            {/* Custom Image Provider Toggle */}
-            <button
-              onClick={() => setIsCustomizerOpen(true)}
-              title="Upload your own custom images for Doctors, Cases & Banner"
-              className="flex items-center gap-1.5 bg-[#141414] hover:bg-[#1a1a1a] text-gray-200 border border-[#c5a059]/40 hover:border-[#c5a059] hover:shadow-[0_0_15px_rgba(197,160,89,0.25)] px-3 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer shadow-sm"
-            >
-              <ImageIcon className="w-3.5 h-3.5 text-[#c5a059]" />
-              <span>Image Editor</span>
-            </button>
-
             {/* Free Consultation CTA Pill */}
             <button
               onClick={() => setIsConsultationOpen(true)}
@@ -129,15 +118,8 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle Button (Hamburger Sign & Image Editor) */}
+          {/* Mobile Menu Toggle Button */}
           <div className="flex lg:hidden items-center gap-2">
-            <button
-              onClick={() => setIsCustomizerOpen(true)}
-              className="p-2.5 text-[#c5a059] bg-[#141414] border border-[#222222] hover:border-[#c5a059] hover:shadow-[0_0_15px_rgba(197,160,89,0.25)] rounded-xl transition-all"
-              title="Upload images"
-            >
-              <ImageIcon className="w-5 h-5" />
-            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 text-[#c5a059] bg-[#141414] border border-[#222222] hover:border-[#c5a059] hover:shadow-[0_0_15px_rgba(197,160,89,0.3)] rounded-xl focus:outline-none transition-all"

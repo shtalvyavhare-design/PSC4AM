@@ -16,44 +16,52 @@ app.use(express.json());
 
 // MongoDB Atlas Connection Setup & Sanitization
 const DEFAULT_MONGODB_URI = 'mongodb+srv://permanentsmilecare_db_user:wFfrelrr6FpSKhBI@cluster0.0dmo4eq.mongodb.net/permanentsmilecare?retryWrites=true&w=majority';
-let rawUri = (process.env.MONGODB_URI || DEFAULT_MONGODB_URI).trim().replace(/^["']|["']$/g, '');
 
-mongoose.set('bufferCommands', false);
+let envUri = process.env.MONGODB_URI ? process.env.MONGODB_URI.trim().replace(/^["']|["']$/g, '') : '';
+if (!envUri || envUri === 'MONGODB_URI' || envUri === 'YOUR_MONGODB_URI' || (!envUri.includes('mongodb://') && !envUri.includes('mongodb+srv://') && !envUri.includes('.'))) {
+  envUri = DEFAULT_MONGODB_URI;
+}
+let rawUri = envUri;
 
-let isMongoConnected = false;
+if (rawUri && !rawUri.startsWith('mongodb://') && !rawUri.startsWith('mongodb+srv://')) {
+  rawUri = `mongodb+srv://${rawUri}`;
+}
 
-async function ensureDbConnection() {
-  if (mongoose.connection.readyState === 1) {
+async function ensureDbConnection(): Promise<boolean> {
+  const currentState = mongoose.connection.readyState as number;
+  if (currentState === 1) {
     return true;
   }
   if (!rawUri) return false;
+  
+  if (currentState === 2) {
+    for (let i = 0; i < 30; i++) {
+      const stateNow = mongoose.connection.readyState as number;
+      if (stateNow === 1) return true;
+      if (stateNow === 0) break;
+      await new Promise(r => setTimeout(r, 200));
+    }
+    const finalCheck = mongoose.connection.readyState as number;
+    if (finalCheck === 1) return true;
+  }
+
   try {
-    await mongoose.connect(rawUri, {
-      serverSelectionTimeoutMS: 5000,
-    });
-    return mongoose.connection.readyState === 1;
+    console.log('Attempting mongoose.connect to:', rawUri.replace(/:[^:@]+@/, ':****@'));
+    await mongoose.connect(rawUri);
+    console.log('✅ Connected successfully to MongoDB Atlas');
+    return (mongoose.connection.readyState as number) === 1;
   } catch (err: any) {
-    console.warn('MongoDB connection attempt failed:', err.message);
+    console.error('⚠️ MongoDB Atlas Connection Error Details:', err);
     return false;
   }
 }
 
-if (rawUri) {
-  if (!rawUri.startsWith('mongodb://') && !rawUri.startsWith('mongodb+srv://')) {
-    rawUri = `mongodb+srv://${rawUri}`;
-  }
+// Initial connect call at server boot
+ensureDbConnection();
 
-  ensureDbConnection()
-    .then((connected) => {
-      if (connected) console.log('✅ Connected successfully to MongoDB Atlas');
-    });
-} else {
-  console.warn('⚠️ MONGODB_URI is not defined in environment variables. Define MONGODB_URI in .env file.');
-}
-
-mongoose.connection.on('connected', () => { isMongoConnected = true; });
-mongoose.connection.on('disconnected', () => { isMongoConnected = false; });
-mongoose.connection.on('error', () => { isMongoConnected = false; });
+mongoose.connection.on('connected', () => { console.log('✅ MongoDB connection active.'); });
+mongoose.connection.on('disconnected', () => { console.warn('⚠️ MongoDB connection disconnected.'); });
+mongoose.connection.on('error', (err) => { console.warn('⚠️ MongoDB connection error:', err.message); });
 
 // In-Memory Fallback Stores
 const inMemoryConsultations: any[] = [];
@@ -100,7 +108,7 @@ const Assessment = mongoose.model('Assessment', assessmentSchema);
 app.get('/api/health', (_req: Request, res: Response) => {
   res.json({
     status: 'ok',
-    database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
+    database: (mongoose.connection.readyState as number) === 1 ? 'connected' : 'disconnected'
   });
 });
 
@@ -139,7 +147,7 @@ app.post('/api/consultation', async (req: Request, res: Response) => {
 
     await ensureDbConnection();
 
-    if (mongoose.connection.readyState === 1) {
+    if ((mongoose.connection.readyState as number) === 1) {
       try {
         const newConsultation = new Consultation(consultationData);
         const savedRecord = await newConsultation.save();
@@ -208,7 +216,9 @@ app.post('/api/assessment', async (req: Request, res: Response) => {
       createdAt: new Date()
     };
 
-    if (mongoose.connection.readyState === 1) {
+    await ensureDbConnection();
+
+    if ((mongoose.connection.readyState as number) === 1) {
       try {
         const newAssessment = new Assessment(assessmentData);
         const savedRecord = await newAssessment.save();
@@ -244,6 +254,8 @@ app.post('/api/assessment', async (req: Request, res: Response) => {
 
 // --- VITE MIDDLEWARE / STATIC FILE SERVING ---
 async function startServer() {
+  await ensureDbConnection();
+
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },

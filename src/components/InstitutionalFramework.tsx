@@ -1,10 +1,11 @@
 import React from 'react';
-import { ShieldCheck, Microscope, Cpu, Award, Image as ImageIcon } from 'lucide-react';
+import { ShieldCheck, Microscope, Cpu, Award } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
+import hospitalBuildingImg from '../assets/images/hospital-building.jpg';
 
 export const InstitutionalFramework: React.FC = () => {
-  const { getImageUrl, setIsCustomizerOpen } = useImageContext();
-  const campusImageUrl = getImageUrl('institutional_building');
+  const { getImageUrl } = useImageContext();
+  const campusImageUrl = getImageUrl('institutional_building', hospitalBuildingImg);
 
   const features = [
     {
@@ -47,15 +48,6 @@ export const InstitutionalFramework: React.FC = () => {
               />
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-
-              {/* Image Customizer Trigger Button */}
-              <button
-                onClick={() => setIsCustomizerOpen(true)}
-                className="absolute top-4 right-4 bg-black/75 hover:bg-[#c5a059] hover:text-black text-gray-200 p-2.5 rounded-full border border-gray-700 transition-all cursor-pointer shadow-lg backdrop-blur-md"
-                title="Replace Institutional Atrium Photo"
-              >
-                <ImageIcon className="w-4 h-4" />
-              </button>
             </div>
 
             {/* Floating Top 100 Rankings Badge - Positioned overlapping bottom-right of image */}

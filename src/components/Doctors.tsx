@@ -1,10 +1,10 @@
 import React from 'react';
-import { BookOpen, GraduationCap, Microscope, Image as ImageIcon } from 'lucide-react';
+import { BookOpen, GraduationCap, Microscope } from 'lucide-react';
 import { INITIAL_DOCTORS } from '../data/defaultData';
 import { useImageContext } from '../context/ImageContext';
 
 export const Doctors: React.FC = () => {
-  const { getImageUrl, setIsCustomizerOpen } = useImageContext();
+  const { getImageUrl } = useImageContext();
 
   return (
     <section id="doctors" className="py-24 bg-black border-t border-[#1a1a1a] relative overflow-hidden">
@@ -49,15 +49,6 @@ export const Doctors: React.FC = () => {
                       alt={doc.name}
                       className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-105"
                     />
-
-                    {/* Image Replacement Trigger Button */}
-                    <button
-                      onClick={() => setIsCustomizerOpen(true)}
-                      className="absolute top-1.5 right-1.5 bg-black/75 hover:bg-[#c5a059] hover:text-black text-gray-300 p-1 rounded-full border border-gray-700 transition-colors cursor-pointer opacity-0 group-hover/img:opacity-100"
-                      title={`Upload custom photo for ${doc.name}`}
-                    >
-                      <ImageIcon className="w-3 h-3" />
-                    </button>
                   </div>
 
                   {/* Right Side: Details */}

@@ -1,4 +1,9 @@
 import { CurrencyConfig, Doctor, TransformationCase, PricingPackage, ImageSlot } from '../types';
+import drSharathImg from '../assets/images/dr-sharath.jpg';
+import drAnitaImg from '../assets/images/dr-anita.jpg';
+import drDnyaneshwariImg from '../assets/images/dr-dnyaneshwari.jpg';
+import drSantoshImg from '../assets/images/dr-santosh.jpg';
+import hospitalBuildingImg from '../assets/images/hospital-building.jpg';
 
 export const CURRENCIES: Record<string, CurrencyConfig> = {
   USD: { code: 'USD', symbol: '$', rateToUSD: 1, label: 'USD ($)' },
@@ -21,29 +26,29 @@ export const INITIAL_IMAGE_SLOTS: ImageSlot[] = [
     key: 'doctor_1',
     title: 'Dr. Sharath K S (Professor)',
     category: 'Doctors',
-    url: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800',
-    defaultUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800'
+    url: drSharathImg,
+    defaultUrl: drSharathImg
   },
   {
     key: 'doctor_2',
     title: 'Dr. Anita Kulloli (Professor)',
     category: 'Doctors',
-    url: 'https://images.unsplash.com/photo-1594824813566-78a514d3f5bc?auto=format&fit=crop&q=80&w=800',
-    defaultUrl: 'https://images.unsplash.com/photo-1594824813566-78a514d3f5bc?auto=format&fit=crop&q=80&w=800'
+    url: drAnitaImg,
+    defaultUrl: drAnitaImg
   },
   {
     key: 'doctor_3',
     title: 'Dr. Dnyaneshwari (Associate Professor)',
     category: 'Doctors',
-    url: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800',
-    defaultUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800'
+    url: drDnyaneshwariImg,
+    defaultUrl: drDnyaneshwariImg
   },
   {
     key: 'doctor_4',
     title: 'Dr. Santosh (Associate Professor)',
     category: 'Doctors',
-    url: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800',
-    defaultUrl: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800'
+    url: drSantoshImg,
+    defaultUrl: drSantoshImg
   },
   {
     key: 'gallery_fac_1',
@@ -133,8 +138,8 @@ export const INITIAL_IMAGE_SLOTS: ImageSlot[] = [
     key: 'institutional_building',
     title: 'Institutional Campus & Atrium',
     category: 'Clinic',
-    url: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000',
-    defaultUrl: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000'
+    url: hospitalBuildingImg,
+    defaultUrl: hospitalBuildingImg
   }
 ];
 
@@ -149,7 +154,7 @@ export const INITIAL_DOCTORS: Doctor[] = [
     implantsPlaced: 8500,
     specialties: ['3D Computer-Guided Implantology', 'Periodontal Surgery', 'Full Mouth Rehab'],
     bio: 'Recognized academic professor and pioneer in keyhole implantology and complex jaw restoration with extensive research contributions.',
-    imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800',
+    imageUrl: drSharathImg,
     rating: 4.99,
     reviewsCount: 720,
     publications: 33,
@@ -166,7 +171,7 @@ export const INITIAL_DOCTORS: Doctor[] = [
     implantsPlaced: 11000,
     specialties: ['Swiss Zirconia Implants', 'Bone Regeneration', 'Laser Periodontics'],
     bio: 'Senior academic leader with 21+ years of surgical experience in international implantology protocols and soft tissue aesthetics.',
-    imageUrl: 'https://images.unsplash.com/photo-1594824813566-78a514d3f5bc?auto=format&fit=crop&q=80&w=800',
+    imageUrl: drAnitaImg,
     rating: 4.97,
     reviewsCount: 650,
     publications: 27,
@@ -183,7 +188,7 @@ export const INITIAL_DOCTORS: Doctor[] = [
     implantsPlaced: 6200,
     specialties: ['Immediate Same-Day Implants', 'Sinus Lift Surgery', 'Prosthetic Rehabilitation'],
     bio: 'Expert specialist in minimally invasive immediate loading dental implants for international patients.',
-    imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800',
+    imageUrl: drDnyaneshwariImg,
     rating: 4.94,
     reviewsCount: 430,
     hIndex: 2,
@@ -199,7 +204,7 @@ export const INITIAL_DOCTORS: Doctor[] = [
     implantsPlaced: 5400,
     specialties: ['Digital CAD/CAM Dentistry', 'Bone Grafting', 'Advanced Implant Surgery'],
     bio: 'High-impact academic researcher with 40 publications and 800+ citations in international implant dentistry.',
-    imageUrl: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800',
+    imageUrl: drSantoshImg,
     rating: 4.96,
     reviewsCount: 510,
     publications: 40,

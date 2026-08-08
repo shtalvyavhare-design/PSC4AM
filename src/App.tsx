@@ -20,7 +20,6 @@ import { GallerySection } from './components/GallerySection';
 import { AssessmentSection } from './components/AssessmentSection';
 import { FaqSection } from './components/FaqSection';
 import { BookConsultationSection } from './components/BookConsultationSection';
-import { ImageCustomizerModal } from './components/ImageCustomizerModal';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -45,9 +44,6 @@ export default function App() {
           <BookConsultationSection />
         </main>
         <Footer />
-
-        {/* Interactive Modals */}
-        <ImageCustomizerModal />
       </div>
     </ImageProvider>
   );

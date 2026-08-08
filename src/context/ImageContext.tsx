@@ -48,7 +48,8 @@ export const ImageProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return 'USD';
   });
 
-  const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
+  const isCustomizerOpen = false;
+  const setIsCustomizerOpen = (_open: boolean) => {};
 
   const setIsEligibilityOpen = (_open: boolean) => {
     const element = document.getElementById('assessment');
