@@ -1,6 +1,8 @@
 import React from 'react';
 import { CheckCircle2, TrendingDown } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
+import implantCentreImg from '../assets/images/implant-centre.png';
+import drSharathImg from '../assets/images/dr-sharath.jpg';
 
 export const CostComparison: React.FC = () => {
   const { getImageUrl } = useImageContext();
@@ -23,15 +25,15 @@ export const CostComparison: React.FC = () => {
   const showcaseImages = [
     {
       title: 'State-of-the-art implant suites',
-      url: getImageUrl('clinic_op', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800')
+      url: getImageUrl('clinic_op', implantCentreImg)
     },
     {
       title: 'Life-changing results',
-      url: getImageUrl('gallery_1_after', 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800')
+      url: getImageUrl('gallery_1_after', implantCentreImg)
     },
     {
       title: 'Professor-led clinical team',
-      url: getImageUrl('doctor_1', 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800')
+      url: getImageUrl('doctor_1', drSharathImg)
     }
   ];
 

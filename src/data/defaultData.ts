@@ -4,6 +4,13 @@ import drAnitaImg from '../assets/images/dr-anita.jpg';
 import drDnyaneshwariImg from '../assets/images/dr-dnyaneshwari.jpg';
 import drSantoshImg from '../assets/images/dr-santosh.jpg';
 import hospitalBuildingImg from '../assets/images/hospital-building.jpg';
+import hospitalInteriorImg from '../assets/images/hospital-interior.jpg';
+import hospitalInterior2Img from '../assets/images/hospital-interior-2.jpg';
+import hospitalSanitisationImg from '../assets/images/hospital-sanitisation.jpg';
+import implantCentreImg from '../assets/images/implant-centre.png';
+import cbctImg from '../assets/images/cbct.jpg';
+import labImg from '../assets/images/lab.png';
+import qsCertificateImg from '../assets/images/qs-certificate.png';
 
 export const CURRENCIES: Record<string, CurrencyConfig> = {
   USD: { code: 'USD', symbol: '$', rateToUSD: 1, label: 'USD ($)' },
@@ -19,8 +26,8 @@ export const INITIAL_IMAGE_SLOTS: ImageSlot[] = [
     key: 'hero_bg',
     title: 'Hero Banner / Background',
     category: 'Hero',
-    url: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1600',
-    defaultUrl: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1600'
+    url: hospitalBuildingImg,
+    defaultUrl: hospitalBuildingImg
   },
   {
     key: 'doctor_1',
@@ -54,85 +61,85 @@ export const INITIAL_IMAGE_SLOTS: ImageSlot[] = [
     key: 'gallery_fac_1',
     title: 'Gallery: Main Academic Hospital Campus',
     category: 'Gallery',
-    url: '',
-    defaultUrl: ''
+    url: hospitalBuildingImg,
+    defaultUrl: hospitalBuildingImg
   },
   {
     key: 'gallery_fac_2',
     title: 'Gallery: Institutional Grand Atrium & Lobby',
     category: 'Gallery',
-    url: '',
-    defaultUrl: ''
+    url: hospitalInteriorImg,
+    defaultUrl: hospitalInteriorImg
   },
   {
     key: 'gallery_fac_3',
     title: 'Gallery: Central Atrium & Rotunda',
     category: 'Gallery',
-    url: '',
-    defaultUrl: ''
+    url: hospitalInterior2Img,
+    defaultUrl: hospitalInterior2Img
   },
   {
     key: 'gallery_fac_4',
     title: 'Gallery: Hospital Clinical Corridor',
     category: 'Gallery',
-    url: '',
-    defaultUrl: ''
+    url: hospitalSanitisationImg,
+    defaultUrl: hospitalSanitisationImg
   },
   {
     key: 'gallery_tech_1',
     title: 'Gallery: Advanced Surgical Operatory Suite',
     category: 'Gallery',
-    url: '',
-    defaultUrl: ''
+    url: implantCentreImg,
+    defaultUrl: implantCentreImg
   },
   {
     key: 'gallery_tech_2',
     title: 'Gallery: Digital 3D CBCT Radiography Suite',
     category: 'Gallery',
-    url: '',
-    defaultUrl: ''
+    url: cbctImg,
+    defaultUrl: cbctImg
   },
   {
     key: 'gallery_tech_3',
     title: 'Gallery: Multi-Workstation Clinical Bay',
     category: 'Gallery',
-    url: '',
-    defaultUrl: ''
+    url: labImg,
+    defaultUrl: labImg
   },
   {
     key: 'gallery_qs_diamond',
     title: 'Gallery: QS I-GAUGE Rating Badge',
     category: 'Gallery',
-    url: '',
-    defaultUrl: ''
+    url: qsCertificateImg,
+    defaultUrl: qsCertificateImg
   },
   {
     key: 'gallery_1_before',
     title: 'Case 1 - Before Treatment',
     category: 'Gallery',
-    url: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800',
-    defaultUrl: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800'
+    url: hospitalInteriorImg,
+    defaultUrl: hospitalInteriorImg
   },
   {
     key: 'gallery_1_after',
     title: 'Case 1 - After Transformation',
     category: 'Gallery',
-    url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800',
-    defaultUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800'
+    url: implantCentreImg,
+    defaultUrl: implantCentreImg
   },
   {
     key: 'clinic_cbct',
     title: '3D CBCT Scanner Facility',
     category: 'Clinic',
-    url: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=1000',
-    defaultUrl: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=1000'
+    url: cbctImg,
+    defaultUrl: cbctImg
   },
   {
     key: 'clinic_op',
     title: 'Sterile Operation Suite',
     category: 'Clinic',
-    url: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000',
-    defaultUrl: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000'
+    url: implantCentreImg,
+    defaultUrl: implantCentreImg
   },
   {
     key: 'institutional_building',
@@ -222,8 +229,8 @@ export const INITIAL_TRANSFORMATIONS: TransformationCase[] = [
     country: 'London, United Kingdom',
     procedure: 'Full Upper Arch All-on-4 Implants',
     durationDays: 5,
-    beforeImageUrl: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800',
-    afterImageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800',
+    beforeImageUrl: hospitalInteriorImg,
+    afterImageUrl: implantCentreImg,
     story: 'Saved over £14,000 compared to UK private clinics. Traveled to India, got full teeth in 5 days, and enjoyed a luxury stay in Goa.',
     savingsPercent: 78
   },
@@ -233,8 +240,8 @@ export const INITIAL_TRANSFORMATIONS: TransformationCase[] = [
     country: 'Sydney, Australia',
     procedure: 'Full Mouth Zirconia Implants (Upper & Lower)',
     durationDays: 7,
-    beforeImageUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800',
-    afterImageUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=800',
+    beforeImageUrl: hospitalSanitisationImg,
+    afterImageUrl: implantCentreImg,
     story: 'I was quoted $45,000 AUD back home. PermanentSmileCare did it for less than $11,000 AUD with lifetime implant warranty.',
     savingsPercent: 75
   },
@@ -244,8 +251,8 @@ export const INITIAL_TRANSFORMATIONS: TransformationCase[] = [
     country: 'Texas, United States',
     procedure: '3 Tooth Implants & Zirconia Bridge',
     durationDays: 3,
-    beforeImageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800',
-    afterImageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800',
+    beforeImageUrl: hospitalInterior2Img,
+    afterImageUrl: labImg,
     story: 'Extremely professional team. Airport coordinator picked me up directly at Delhi T3. Implants felt 100% natural within hours.',
     savingsPercent: 82
   }
