@@ -1,18 +1,5 @@
 import { CurrencyConfig, Doctor, TransformationCase, PricingPackage, ImageSlot } from '../types';
-import drSharathImg from '../assets/images/dr-sharath.jpg';
-import drAnitaImg from '../assets/images/anita-.jpg';
-import drDnyaneshwariImg from '../assets/images/dr-dnyaneshwari.jpg';
-import drSantoshImg from '../assets/images/dr-santosh.jpg';
-import couplesBannerImg from '../assets/images/couples_package_banner_1786139421072.jpg';
-import hospitalBuildingImg from '../assets/images/Hospital building.jpg';
-import hospitalInteriorImg from '../assets/images/hospital Interior.jpg';
-import hospitalInterior2Img from '../assets/images/hospital Interior2.jpg';
-import hospitalSanitisationImg from '../assets/images/Hospital sanitisation.jpg';
-import implantCentreImg from '../assets/images/Implant Centre.png';
-import cbctImg from '../assets/images/CBCT.jpg';
-import labImg from '../assets/images/lab.png';
-import qsCertificateImg from '../assets/images/QS Certificate.png';
-
+import { images } from '../defaultdata.js';
 
 export const CURRENCIES: Record<string, CurrencyConfig> = {
   USD: { code: 'USD', symbol: '$', rateToUSD: 1, label: 'USD ($)' },
@@ -28,134 +15,134 @@ export const INITIAL_IMAGE_SLOTS: ImageSlot[] = [
     key: 'hero_bg',
     title: 'Hero Banner / Background',
     category: 'Hero',
-    url: hospitalBuildingImg,
-    defaultUrl: hospitalBuildingImg
+    url: images.hospitalBuilding,
+    defaultUrl: images.hospitalBuilding
   },
   {
     key: 'doctor_1',
     title: 'Dr. Sharath K S (Professor)',
     category: 'Doctors',
-    url: drSharathImg,
-    defaultUrl: drSharathImg
+    url: images.drSharath,
+    defaultUrl: images.drSharath
   },
   {
     key: 'doctor_2',
     title: 'Dr. Anita Kulloli (Professor)',
     category: 'Doctors',
-    url: drAnitaImg,
-    defaultUrl: drAnitaImg
+    url: images.drAnita,
+    defaultUrl: images.drAnita
   },
   {
     key: 'doctor_3',
     title: 'Dr. Dnyaneshwari (Associate Professor)',
     category: 'Doctors',
-    url: drDnyaneshwariImg,
-    defaultUrl: drDnyaneshwariImg
+    url: images.drDnyaneshwari,
+    defaultUrl: images.drDnyaneshwari
   },
   {
     key: 'doctor_4',
     title: 'Dr. Santosh (Associate Professor)',
     category: 'Doctors',
-    url: drSantoshImg,
-    defaultUrl: drSantoshImg
+    url: images.drSantosh,
+    defaultUrl: images.drSantosh
   },
   {
     key: 'gallery_fac_1',
     title: 'Gallery: Main Academic Hospital Campus',
     category: 'Gallery',
-    url: hospitalBuildingImg,
-    defaultUrl: hospitalBuildingImg
+    url: images.hospitalBuilding,
+    defaultUrl: images.hospitalBuilding
   },
   {
     key: 'gallery_fac_2',
     title: 'Gallery: Institutional Grand Atrium & Lobby',
     category: 'Gallery',
-    url: hospitalInteriorImg,
-    defaultUrl: hospitalInteriorImg
+    url: images.hospitalInterior,
+    defaultUrl: images.hospitalInterior
   },
   {
     key: 'gallery_fac_3',
     title: 'Gallery: Central Atrium & Rotunda',
     category: 'Gallery',
-    url: hospitalInterior2Img,
-    defaultUrl: hospitalInterior2Img
+    url: images.hospitalInterior2,
+    defaultUrl: images.hospitalInterior2
   },
   {
     key: 'gallery_fac_4',
     title: 'Gallery: Hospital Clinical Corridor',
     category: 'Gallery',
-    url: hospitalSanitisationImg,
-    defaultUrl: hospitalSanitisationImg
+    url: images.hospitalSanitisation,
+    defaultUrl: images.hospitalSanitisation
   },
   {
     key: 'gallery_tech_1',
     title: 'Gallery: Advanced Surgical Operatory Suite',
     category: 'Gallery',
-    url: implantCentreImg,
-    defaultUrl: implantCentreImg
+    url: images.implantCentre,
+    defaultUrl: images.implantCentre
   },
   {
     key: 'gallery_tech_2',
     title: 'Gallery: Digital 3D CBCT Radiography Suite',
     category: 'Gallery',
-    url: cbctImg,
-    defaultUrl: cbctImg
+    url: images.cbct,
+    defaultUrl: images.cbct
   },
   {
     key: 'gallery_tech_3',
     title: 'Gallery: Multi-Workstation Clinical Bay',
     category: 'Gallery',
-    url: labImg,
-    defaultUrl: labImg
+    url: images.lab,
+    defaultUrl: images.lab
   },
   {
     key: 'gallery_qs_diamond',
     title: 'Gallery: QS I-GAUGE Rating Badge',
     category: 'Gallery',
-    url: qsCertificateImg,
-    defaultUrl: qsCertificateImg
+    url: images.qsCertificate,
+    defaultUrl: images.qsCertificate
   },
   {
     key: 'gallery_1_before',
     title: 'Case 1 - Before Treatment',
     category: 'Gallery',
-    url: hospitalInteriorImg,
-    defaultUrl: hospitalInteriorImg
+    url: images.hospitalInterior,
+    defaultUrl: images.hospitalInterior
   },
   {
     key: 'gallery_1_after',
     title: 'Case 1 - After Transformation',
     category: 'Gallery',
-    url: implantCentreImg,
-    defaultUrl: implantCentreImg
+    url: images.implantCentre,
+    defaultUrl: images.implantCentre
   },
   {
     key: 'clinic_cbct',
     title: '3D CBCT Scanner Facility',
     category: 'Clinic',
-    url: cbctImg,
-    defaultUrl: cbctImg
+    url: images.cbct,
+    defaultUrl: images.cbct
   },
   {
     key: 'clinic_op',
     title: 'Sterile Operation Suite',
     category: 'Clinic',
-    url: implantCentreImg,
-    defaultUrl: implantCentreImg
+    url: images.implantCentre,
+    defaultUrl: images.implantCentre
   },
   {
     key: 'institutional_building',
     title: 'Institutional Campus & Atrium',
     category: 'Clinic',
-    url: hospitalBuildingImg,
-    defaultUrl: hospitalBuildingImg
+    url: images.hospitalBuilding,
+    defaultUrl: images.hospitalBuilding
   },
   {
     key: 'couples_banner',
     title: "Couple's Package Banner",
     category: 'Clinic',
-    url: couplesBannerImg,
-    defaultUrl: couplesBannerImg
+    url: images.couplesBanner,
+    defaultUrl: images.couplesBanner
   }
 ];
 
@@ -170,7 +157,7 @@ export const INITIAL_DOCTORS: Doctor[] = [
     implantsPlaced: 8500,
     specialties: ['3D Computer-Guided Implantology', 'Periodontal Surgery', 'Full Mouth Rehab'],
     bio: 'Recognized academic professor and pioneer in keyhole implantology and complex jaw restoration with extensive research contributions.',
-    imageUrl: drSharathImg,
+    imageUrl: images.drSharath,
     rating: 4.99,
     reviewsCount: 720,
     publications: 33,
@@ -187,7 +174,7 @@ export const INITIAL_DOCTORS: Doctor[] = [
     implantsPlaced: 11000,
     specialties: ['Swiss Zirconia Implants', 'Bone Regeneration', 'Laser Periodontics'],
     bio: 'Senior academic leader with 21+ years of surgical experience in international implantology protocols and soft tissue aesthetics.',
-    imageUrl: drAnitaImg,
+    imageUrl: images.drAnita,
     rating: 4.97,
     reviewsCount: 650,
     publications: 27,
@@ -204,7 +191,7 @@ export const INITIAL_DOCTORS: Doctor[] = [
     implantsPlaced: 6200,
     specialties: ['Immediate Same-Day Implants', 'Sinus Lift Surgery', 'Prosthetic Rehabilitation'],
     bio: 'Expert specialist in minimally invasive immediate loading dental implants for international patients.',
-    imageUrl: drDnyaneshwariImg,
+    imageUrl: images.drDnyaneshwari,
     rating: 4.94,
     reviewsCount: 430,
     hIndex: 2,
@@ -220,7 +207,7 @@ export const INITIAL_DOCTORS: Doctor[] = [
     implantsPlaced: 5400,
     specialties: ['Digital CAD/CAM Dentistry', 'Bone Grafting', 'Advanced Implant Surgery'],
     bio: 'High-impact academic researcher with 40 publications and 800+ citations in international implant dentistry.',
-    imageUrl: drSantoshImg,
+    imageUrl: images.drSantosh,
     rating: 4.96,
     reviewsCount: 510,
     publications: 40,
@@ -238,8 +225,8 @@ export const INITIAL_TRANSFORMATIONS: TransformationCase[] = [
     country: 'London, United Kingdom',
     procedure: 'Full Upper Arch All-on-4 Implants',
     durationDays: 5,
-    beforeImageUrl: hospitalInteriorImg,
-    afterImageUrl: implantCentreImg,
+    beforeImageUrl: images.hospitalInterior,
+    afterImageUrl: images.implantCentre,
     story: 'Saved over £14,000 compared to UK private clinics. Traveled to India, got full teeth in 5 days, and enjoyed a luxury stay in Goa.',
     savingsPercent: 78
   },
@@ -249,8 +236,8 @@ export const INITIAL_TRANSFORMATIONS: TransformationCase[] = [
     country: 'Sydney, Australia',
     procedure: 'Full Mouth Zirconia Implants (Upper & Lower)',
     durationDays: 7,
-    beforeImageUrl: hospitalSanitisationImg,
-    afterImageUrl: implantCentreImg,
+    beforeImageUrl: images.hospitalSanitisation,
+    afterImageUrl: images.implantCentre,
     story: 'I was quoted $45,000 AUD back home. PermanentSmileCare did it for less than $11,000 AUD with lifetime implant warranty.',
     savingsPercent: 75
   },
@@ -260,8 +247,8 @@ export const INITIAL_TRANSFORMATIONS: TransformationCase[] = [
     country: 'Texas, United States',
     procedure: '3 Tooth Implants & Zirconia Bridge',
     durationDays: 3,
-    beforeImageUrl: hospitalInterior2Img,
-    afterImageUrl: labImg,
+    beforeImageUrl: images.hospitalInterior2,
+    afterImageUrl: images.lab,
     story: 'Extremely professional team. Airport coordinator picked me up directly at Delhi T3. Implants felt 100% natural within hours.',
     savingsPercent: 82
   }

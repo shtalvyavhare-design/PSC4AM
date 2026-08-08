@@ -1,13 +1,11 @@
 import React from 'react';
 import { Users, Percent, Wallet, Hotel, CalendarCheck, Plane, ShieldCheck, Heart, Sparkles } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
-
-// Generated couple photo asset
-import couplesBannerImg from '../assets/images/couples-banner.jpg';
+import { images } from '../defaultdata.js';
 
 export const CouplesOfferSection: React.FC = () => {
   const { setIsEligibilityOpen, getImageUrl } = useImageContext();
-  const bannerImgUrl = getImageUrl('couples_banner', couplesBannerImg);
+  const bannerImgUrl = getImageUrl('couples_banner', images.couplesBanner);
 
   return (
     <section id="couples-offer" className="py-20 sm:py-28 bg-black text-gray-200 border-t border-[#1a1a1a] relative overflow-hidden">

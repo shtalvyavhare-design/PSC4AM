@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { ZoomIn, X, Building2 } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
-
-import hospitalBuilding from '../assets/images/hospital-building.jpg';
-import hospitalInterior from '../assets/images/hospital-interior.jpg';
-import hospitalInterior2 from '../assets/images/hospital-interior-2.jpg';
-import hospitalSanitisation from '../assets/images/hospital-sanitisation.jpg';
-import implantCentre from '../assets/images/implant-centre.png';
-import cbct from '../assets/images/cbct.jpg';
-import lab from '../assets/images/lab.png';
-import qsCertificate from '../assets/images/qs-certificate.png';
+import { images } from '../defaultdata.js';
 
 interface GalleryItem {
   id: string;
@@ -26,7 +18,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     slotKey: 'gallery_fac_1',
     title: 'Main Academic Hospital Campus',
     category: 'Facility',
-    defaultImageUrl: hospitalBuilding,
+    defaultImageUrl: images.hospitalBuilding,
     description: 'Multistory university-affiliated tertiary care hospital building housing our specialized dental departments.'
   },
   {
@@ -34,7 +26,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     slotKey: 'gallery_fac_2',
     title: 'Institutional Grand Atrium & Lobby',
     category: 'Facility',
-    defaultImageUrl: hospitalInterior,
+    defaultImageUrl: images.hospitalInterior,
     description: 'Spacious multi-level atrium welcoming international patients with dedicated reception and concierge desks.'
   },
   {
@@ -42,7 +34,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     slotKey: 'gallery_fac_3',
     title: 'Central Atrium & Rotunda Architecture',
     category: 'Facility',
-    defaultImageUrl: hospitalInterior2,
+    defaultImageUrl: images.hospitalInterior2,
     description: 'Architectural rotunda design facilitating seamless patient movement across multi-specialty clinical departments.'
   },
   {
@@ -50,7 +42,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     slotKey: 'gallery_fac_4',
     title: 'Hospital Clinical Corridor',
     category: 'Facility',
-    defaultImageUrl: hospitalSanitisation,
+    defaultImageUrl: images.hospitalSanitisation,
     description: 'Ultra-clean, marble-floored clinical corridors connecting patient rooms, radiology, and surgical suites.'
   },
   {
@@ -58,7 +50,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     slotKey: 'gallery_tech_1',
     title: 'Advanced Surgical Operatory Suite',
     category: 'Technology',
-    defaultImageUrl: implantCentre,
+    defaultImageUrl: images.implantCentre,
     description: 'Ergonomic dental operatory suite equipped with digital monitors, surgical lighting, and sterilization controls.'
   },
   {
@@ -66,7 +58,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     slotKey: 'gallery_tech_2',
     title: 'Digital 3D CBCT Radiography Suite',
     category: 'Technology',
-    defaultImageUrl: cbct,
+    defaultImageUrl: images.cbct,
     description: 'State-of-the-art Gendex 3D CBCT scanner providing sub-millimeter jaw bone imaging for guided implant placement.'
   },
   {
@@ -74,7 +66,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     slotKey: 'gallery_tech_3',
     title: 'Multi-Workstation Clinical Bay',
     category: 'Technology',
-    defaultImageUrl: lab,
+    defaultImageUrl: images.lab,
     description: 'High-capacity clinical workstations utilized for multidisciplinary case reviews and pre-surgical planning.'
   },
   {
@@ -82,7 +74,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     slotKey: 'gallery_qs_diamond',
     title: 'QS I-GAUGE Rating — Diamond Category',
     category: 'Accreditation',
-    defaultImageUrl: qsCertificate,
+    defaultImageUrl: images.qsCertificate,
     description: 'Institutional excellence recognized with the prestigious QS I-GAUGE Diamond rating for clinical quality and academic infrastructure.'
   }
 ];
@@ -101,7 +93,7 @@ export const GallerySection: React.FC = () => {
     ? itemsWithUrls
     : itemsWithUrls.filter((item) => item.category === activeFilter);
 
-  const heroBgUrl = getImageUrl('gallery_fac_1', hospitalBuilding);
+  const heroBgUrl = getImageUrl('gallery_fac_1', images.hospitalBuilding);
 
   return (
     <section id="gallery" className="py-20 bg-black text-white relative overflow-hidden border-t border-[#1a1a1a]">

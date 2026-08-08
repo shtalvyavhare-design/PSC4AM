@@ -1,8 +1,7 @@
 import React from 'react';
 import { CheckCircle2, TrendingDown } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
-import implantCentreImg from '../assets/images/implant-centre.png';
-import drSharathImg from '../assets/images/dr-sharath.jpg';
+import { images } from '../defaultdata.js';
 
 export const CostComparison: React.FC = () => {
   const { getImageUrl } = useImageContext();
@@ -25,15 +24,15 @@ export const CostComparison: React.FC = () => {
   const showcaseImages = [
     {
       title: 'State-of-the-art implant suites',
-      url: getImageUrl('clinic_op', implantCentreImg)
+      url: getImageUrl('clinic_op', images.implantCentre)
     },
     {
       title: 'Life-changing results',
-      url: getImageUrl('gallery_1_after', implantCentreImg)
+      url: getImageUrl('gallery_1_after', images.implantCentre)
     },
     {
       title: 'Professor-led clinical team',
-      url: getImageUrl('doctor_1', drSharathImg)
+      url: getImageUrl('doctor_1', images.drSharath)
     }
   ];
 

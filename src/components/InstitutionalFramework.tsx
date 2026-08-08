@@ -1,11 +1,11 @@
 import React from 'react';
 import { ShieldCheck, Microscope, Cpu, Award } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
-import hospitalBuildingImg from '../assets/images/hospital-building.jpg';
+import { images } from '../defaultdata.js';
 
 export const InstitutionalFramework: React.FC = () => {
   const { getImageUrl } = useImageContext();
-  const campusImageUrl = getImageUrl('institutional_building', hospitalBuildingImg);
+  const campusImageUrl = getImageUrl('institutional_building', images.hospitalBuilding);
 
   const features = [
     {
