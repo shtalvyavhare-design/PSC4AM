@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { ZoomIn, X, Building2 } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
 
-import hospitalBuilding from '../../Hospital building.jpg';
-import hospitalInterior from '../../hospital Interior.jpg';
-import hospitalInterior2 from '../../hospital Interior2.jpg';
-import hospitalSanitisation from '../../Hospital sanitisation.jpg';
-import implantCentre from '../../Implant Centre.png';
-import cbct from '../../CBCT.jpg';
-import lab from '../../lab.png';
-import qsCertificate from '../../QS Certificate.png';
+import hospitalBuilding from '../assets/images/hospital-building.jpg';
+import hospitalInterior from '../assets/images/hospital-interior.jpg';
+import hospitalInterior2 from '../assets/images/hospital-interior-2.jpg';
+import hospitalSanitisation from '../assets/images/hospital-sanitisation.jpg';
+import implantCentre from '../assets/images/implant-centre.png';
+import cbct from '../assets/images/cbct.jpg';
+import lab from '../assets/images/lab.png';
+import qsCertificate from '../assets/images/qs-certificate.png';
 
 interface GalleryItem {
   id: string;

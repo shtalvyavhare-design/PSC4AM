@@ -1,16 +1,18 @@
 import { CurrencyConfig, Doctor, TransformationCase, PricingPackage, ImageSlot } from '../types';
-import drSharathImg from '../../dr-sharath.jpg';
-import drAnitaImg from '../../anita-.jpg';
-import drDnyaneshwariImg from '../../dr-dnyaneshwari.jpg';
-import drSantoshImg from '../../dr-santosh.jpg';
-import hospitalBuildingImg from '../../Hospital building.jpg';
-import hospitalInteriorImg from '../../hospital Interior.jpg';
-import hospitalInterior2Img from '../../hospital Interior2.jpg';
-import hospitalSanitisationImg from '../../Hospital sanitisation.jpg';
-import implantCentreImg from '../../Implant Centre.png';
-import cbctImg from '../../CBCT.jpg';
-import labImg from '../../lab.png';
-import qsCertificateImg from '../../QS Certificate.png';
+import drSharathImg from 'dr-sharath.jpg';
+import drAnitaImg from 'anita-.jpg';
+import drDnyaneshwariImg from 'dr-dnyaneshwari.jpg';
+import drSantoshImg from 'dr-santosh.jpg';
+import couplesBannerImg from 'couples_package_banner_1786139421072.jpg';
+import hospitalBuildingImg from 'Hospital building.jpg';
+import hospitalInteriorImg from ' hospital Interior.jpg' ;
+import hospitalInterior2Img from 'hospital Interior2.jpg';
+import hospitalSanitisationImg from 'Hospital sanitisation.jpg';
+import implantCentreImg from 'Implant Centre.png';
+import cbctImg from 'CBCT.jpg';
+import labImg from 'lab.png';
+import qsCertificateImg from 'QS Certificate.png';
+
 
 export const CURRENCIES: Record<string, CurrencyConfig> = {
   USD: { code: 'USD', symbol: '$', rateToUSD: 1, label: 'USD ($)' },
@@ -147,6 +149,13 @@ export const INITIAL_IMAGE_SLOTS: ImageSlot[] = [
     category: 'Clinic',
     url: hospitalBuildingImg,
     defaultUrl: hospitalBuildingImg
+  },
+  {
+    key: 'couples_banner',
+    title: "Couple's Package Banner",
+    category: 'Clinic',
+    url: couplesBannerImg,
+    defaultUrl: couplesBannerImg
   }
 ];
 

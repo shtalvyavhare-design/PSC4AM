@@ -3,10 +3,11 @@ import { Users, Percent, Wallet, Hotel, CalendarCheck, Plane, ShieldCheck, Heart
 import { useImageContext } from '../context/ImageContext';
 
 // Generated couple photo asset
-import couplesBannerImg from '../../couples_package_banner.jpg';
+import couplesBannerImg from '../assets/images/couples-banner.jpg';
 
 export const CouplesOfferSection: React.FC = () => {
-  const { setIsEligibilityOpen } = useImageContext();
+  const { setIsEligibilityOpen, getImageUrl } = useImageContext();
+  const bannerImgUrl = getImageUrl('couples_banner', couplesBannerImg);
 
   return (
     <section id="couples-offer" className="py-20 sm:py-28 bg-black text-gray-200 border-t border-[#1a1a1a] relative overflow-hidden">
@@ -88,7 +89,7 @@ export const CouplesOfferSection: React.FC = () => {
           <div className="lg:col-span-6 xl:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border-2 border-[#c5a059]/40 shadow-[0_0_40px_rgba(0,0,0,0.8)] group">
               <img
-                src={couplesBannerImg}
+                src={bannerImgUrl}
                 alt="Couple smiling in luxury dental lounge"
                 referrerPolicy="no-referrer"
                 className="w-full h-[360px] sm:h-[450px] lg:h-[500px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
