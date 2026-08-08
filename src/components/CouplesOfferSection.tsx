@@ -3,7 +3,7 @@ import { Users, Percent, Wallet, Hotel, CalendarCheck, Plane, ShieldCheck, Heart
 import { useImageContext } from '../context/ImageContext';
 
 // Generated couple photo asset
-import couplesBannerImg from '../assets/images/couples_package_banner_1786139421072.jpg';
+import couplesBannerImg from '../../couples_package_banner.jpg';
 
 export const CouplesOfferSection: React.FC = () => {
   const { setIsEligibilityOpen } = useImageContext();

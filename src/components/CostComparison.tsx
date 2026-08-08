@@ -1,8 +1,8 @@
 import React from 'react';
 import { CheckCircle2, TrendingDown } from 'lucide-react';
 import { useImageContext } from '../context/ImageContext';
-import implantCentreImg from '../assets/images/implant-centre.png';
-import drSharathImg from '../assets/images/dr-sharath.jpg';
+import implantCentreImg from '../../Implant Centre.png';
+import drSharathImg from '../../dr-sharath.jpg';
 
 export const CostComparison: React.FC = () => {
   const { getImageUrl } = useImageContext();

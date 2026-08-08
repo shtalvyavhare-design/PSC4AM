@@ -1,16 +1,16 @@
 import { CurrencyConfig, Doctor, TransformationCase, PricingPackage, ImageSlot } from '../types';
-import drSharathImg from '../assets/images/dr-sharath.jpg';
-import drAnitaImg from '../assets/images/dr-anita.jpg';
-import drDnyaneshwariImg from '../assets/images/dr-dnyaneshwari.jpg';
-import drSantoshImg from '../assets/images/dr-santosh.jpg';
-import hospitalBuildingImg from '../assets/images/hospital-building.jpg';
-import hospitalInteriorImg from '../assets/images/hospital-interior.jpg';
-import hospitalInterior2Img from '../assets/images/hospital-interior-2.jpg';
-import hospitalSanitisationImg from '../assets/images/hospital-sanitisation.jpg';
-import implantCentreImg from '../assets/images/implant-centre.png';
-import cbctImg from '../assets/images/cbct.jpg';
-import labImg from '../assets/images/lab.png';
-import qsCertificateImg from '../assets/images/qs-certificate.png';
+import drSharathImg from '../../dr-sharath.jpg';
+import drAnitaImg from '../../anita-.jpg';
+import drDnyaneshwariImg from '../../dr-dnyaneshwari.jpg';
+import drSantoshImg from '../../dr-santosh.jpg';
+import hospitalBuildingImg from '../../Hospital building.jpg';
+import hospitalInteriorImg from '../../hospital Interior.jpg';
+import hospitalInterior2Img from '../../hospital Interior2.jpg';
+import hospitalSanitisationImg from '../../Hospital sanitisation.jpg';
+import implantCentreImg from '../../Implant Centre.png';
+import cbctImg from '../../CBCT.jpg';
+import labImg from '../../lab.png';
+import qsCertificateImg from '../../QS Certificate.png';
 
 export const CURRENCIES: Record<string, CurrencyConfig> = {
   USD: { code: 'USD', symbol: '$', rateToUSD: 1, label: 'USD ($)' },
