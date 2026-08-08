@@ -22,23 +22,30 @@ mongoose.set('bufferCommands', false);
 
 let isMongoConnected = false;
 
+async function ensureDbConnection() {
+  if (mongoose.connection.readyState === 1) {
+    return true;
+  }
+  if (!rawUri) return false;
+  try {
+    await mongoose.connect(rawUri, {
+      serverSelectionTimeoutMS: 5000,
+    });
+    return mongoose.connection.readyState === 1;
+  } catch (err: any) {
+    console.warn('MongoDB connection attempt failed:', err.message);
+    return false;
+  }
+}
+
 if (rawUri) {
   if (!rawUri.startsWith('mongodb://') && !rawUri.startsWith('mongodb+srv://')) {
     rawUri = `mongodb+srv://${rawUri}`;
   }
 
-  mongoose
-    .connect(rawUri, {
-      serverSelectionTimeoutMS: 5000,
-    })
-    .then(() => {
-      isMongoConnected = true;
-      console.log('✅ Connected successfully to MongoDB Atlas');
-    })
-    .catch((err: any) => {
-      isMongoConnected = false;
-      console.warn('⚠️ MongoDB Atlas Connection Note:', err.message);
-      console.warn('💡 Tip: Verify MONGODB_URI in your .env file and whitelist IP 0.0.0.0/0 in MongoDB Atlas.');
+  ensureDbConnection()
+    .then((connected) => {
+      if (connected) console.log('✅ Connected successfully to MongoDB Atlas');
     });
 } else {
   console.warn('⚠️ MONGODB_URI is not defined in environment variables. Define MONGODB_URI in .env file.');
@@ -57,8 +64,8 @@ const consultationSchema = new mongoose.Schema(
   {
     fullName: { type: String, required: true, trim: true },
     countryOfResidence: { type: String, default: '' },
-    email: { type: String, required: true, trim: true, lowercase: true },
-    phoneWhatsApp: { type: String, required: true, trim: true },
+    email: { type: String, trim: true, lowercase: true, default: '' },
+    phoneWhatsApp: { type: String, trim: true, default: '' },
     treatmentInterest: { type: String, default: '' },
     treatmentScope: { type: String, default: '' },
     messageDentalHistory: { type: String, default: '' },
@@ -76,8 +83,8 @@ const assessmentSchema = new mongoose.Schema(
     treatmentScope: { type: String, default: '' },
     fullName: { type: String, required: true, trim: true },
     countryOfResidence: { type: String, default: '' },
-    email: { type: String, required: true, trim: true, lowercase: true },
-    whatsappNumber: { type: String, required: true, trim: true },
+    email: { type: String, trim: true, lowercase: true, default: '' },
+    whatsappNumber: { type: String, trim: true, default: '' },
     dentalSituation: { type: String, default: '' },
     paymentStatus: { type: String, default: 'pending_100_fee' },
     paymentAmount: { type: Number, default: 100 }
@@ -111,10 +118,10 @@ app.post('/api/consultation', async (req: Request, res: Response) => {
       consent
     } = req.body;
 
-    if (!fullName || !countryOfResidence || !email || !phoneWhatsApp) {
+    if (!fullName || !countryOfResidence || (!email && !phoneWhatsApp)) {
       return res.status(400).json({
         success: false,
-        error: 'Full Name, Country of Residence, Email, and Phone/WhatsApp are required fields.'
+        error: 'Full Name, Country of Residence, and at least one contact method (Email or Phone/WhatsApp) are required.'
       });
     }
 
@@ -129,6 +136,8 @@ app.post('/api/consultation', async (req: Request, res: Response) => {
       consent: Boolean(consent),
       createdAt: new Date()
     };
+
+    await ensureDbConnection();
 
     if (mongoose.connection.readyState === 1) {
       try {
@@ -179,10 +188,10 @@ app.post('/api/assessment', async (req: Request, res: Response) => {
       paymentAmount
     } = req.body;
 
-    if (!fullName || !countryOfResidence || !email || !whatsappNumber) {
+    if (!fullName || !countryOfResidence || (!email && !whatsappNumber)) {
       return res.status(400).json({
         success: false,
-        error: 'Full Name, Country of Residence, Email, and WhatsApp number are required fields.'
+        error: 'Full Name, Country of Residence, and at least one contact method (Email or WhatsApp) are required.'
       });
     }
 
